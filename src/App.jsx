@@ -1,10 +1,14 @@
 import "./App.css";
-import LandingPage from "./pages/LandingPage";
+import { Outlet } from "react-router-dom";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <>
-      <LandingPage />
+      <NavBar />
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 }
