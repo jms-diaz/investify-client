@@ -1,17 +1,17 @@
 import HeroImage from "../assets/hero-image.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
     <section className="relative">
-      <div className="flex flex-col md:flex-row items-center justify-center min-h-screen mx-3 pt-10 md:pt-0">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-center min-h-screen mx-3 md:pt-0">
         <div className="md:w-1/2 md:px-6 mb-10 md:mb-0">
           <div className="md:w-3/4 mx-auto">
             <p className="mb-2 md:mb-8">
               <span className="text-2xl md:text-5xl font-bold leading-tight mb-6">
                 You can&apos;t expand your knowledge if you don&apos;t&nbsp;
               </span>
-              <span className="text-2xl md:text-5xl font-bold leading-tight mb-6 bg-gradient-to-r from-[#F7EC13] to-[#EB523B] text-transparent bg-clip-text">
+              <span className="text-2xl md:text-5xl font-bold leading-tight mb-6 gradient text-transparent bg-clip-text">
                 invest
               </span>
             </p>

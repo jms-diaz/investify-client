@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text-primary {
+    color: #EB5B38;
+}
+
+.gradient {
+   @apply bg-gradient-to-b from-[#F7EC13] to-[#EB523B];
+}
