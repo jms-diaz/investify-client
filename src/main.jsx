@@ -10,6 +10,8 @@ import LandingPage from "./pages/LandingPage.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Courses from "./pages/Courses.jsx";
+import Profile from "./pages/Profile.jsx";
+import SingleCourse from "./pages/SingleCourse.jsx";
 
 const router = createBrowserRouter([
   // Public Routes
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/courses/:id",
+        element: <SingleCourse />,
       },
     ],
   },

@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import SampleImage from "../assets/sample-image.png";
 
-const CoursesCard = () => {
+const Featured = () => {
   const navigate = useNavigate();
   const viewCourse = () => {
-    navigate("sample-course");
+    navigate("courses/sample-course");
   };
   return (
     <div className="p-5 md:p-0 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 items-start ">
@@ -83,4 +83,4 @@ const CoursesCard = () => {
   );
 };
 
-export default CoursesCard;
+export default Featured;

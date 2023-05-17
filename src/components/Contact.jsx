@@ -35,7 +35,7 @@ const Contact = () => {
           </div>
 
           <div className="mb-3 flex items-end">
-            <button className="mb-2 font-bold text-center text-black bg-white px-6 border border-black py-2 rounded-md">
+            <button className="mb-2 font-bold text-center text-black bg-white px-6  py-2 rounded-md">
               Send
             </button>
           </div>

@@ -5,6 +5,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
+    localStorage.setItem("user", "authenticated");
     navigate("/courses");
   };
 

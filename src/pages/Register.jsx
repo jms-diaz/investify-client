@@ -5,6 +5,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const handleRegister = () => {
+    localStorage.setItem("user", "authenticated");
     navigate("/courses");
   };
 
