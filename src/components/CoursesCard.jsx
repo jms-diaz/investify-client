@@ -1,84 +1,35 @@
+import { topics } from "../components/courses";
 import { useNavigate } from "react-router-dom";
 import SampleImage from "../assets/sample-image.png";
 
 const CoursesCard = () => {
   const navigate = useNavigate();
-  const viewCourse = () => {
-    navigate("sample-course");
+  const courses = topics;
+
+  const viewCourse = (course) => {
+    navigate("sample-course", { state: { data: course } });
   };
+
   return (
     <div className="p-5 md:p-0 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 items-start ">
-      <div className="p-5 py-10 bg-white border shadow-md transform duration-500 hover:-translate-y-2 cursor-pointer">
-        <img src={SampleImage} alt="" className="w-full" />
-        <h1 className="text-xl md:text-2xl mb-2 text-primary font-semibold">
-          Blockchain 101
-        </h1>
-        <p className="mb-2 text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          eget tellus eu ante sodales. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Pellentesque eget tellus eu ante sodales
-        </p>
-        <button
-          onClick={viewCourse}
-          className="p-2 px-6 w-full bg-black  text-white rounded-md"
+      {courses.map((course) => (
+        <div
+          key={course.title}
+          className="p-5 py-10 bg-white border shadow-md transform duration-500 h-full hover:-translate-y-2 cursor-pointer"
         >
-          View Course
-        </button>
-      </div>
-
-      <div className="p-5 py-10 bg-white border shadow-md transform duration-500 hover:-translate-y-2 cursor-pointer">
-        <img src={SampleImage} alt="" className="w-full" />
-        <h1 className="text-xl md:text-2xl mb-2 text-primary font-semibold">
-          Solidity
-        </h1>
-        <p className="mb-2 text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          eget tellus eu ante sodales. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Pellentesque eget tellus eu ante sodales
-        </p>
-        <button
-          onClick={viewCourse}
-          className="p-2 px-6 w-full bg-black  text-white rounded-md"
-        >
-          View Course
-        </button>
-      </div>
-
-      <div className="p-5 py-10 bg-white border shadow-md transform duration-500 hover:-translate-y-2 cursor-pointer">
-        <img src={SampleImage} alt="" className="w-full" />
-        <h1 className="text-xl md:text-2xl mb-2 text-primary font-semibold">
-          Smart Contracts
-        </h1>
-        <p className="mb-2 text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          eget tellus eu ante sodales. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Pellentesque eget tellus eu ante sodales
-        </p>
-        <button
-          onClick={viewCourse}
-          className="p-2 px-6 w-full bg-black  text-white rounded-md"
-        >
-          View Course
-        </button>
-      </div>
-
-      <div className="p-5 py-10 bg-white border shadow-md transform duration-500 hover:-translate-y-2 cursor-pointer">
-        <img src={SampleImage} alt="" className="w-full" />
-        <h1 className="text-xl md:text-2xl mb-2 text-primary font-semibold">
-          Web 3.0 Basics
-        </h1>
-        <p className="mb-2 text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          eget tellus eu ante sodales. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Pellentesque eget tellus eu ante sodales
-        </p>
-        <button
-          onClick={viewCourse}
-          className="p-2 px-6 w-full bg-black  text-white rounded-md"
-        >
-          View Course
-        </button>
-      </div>
+          <img src={SampleImage} alt="" className="w-full" />
+          <h1 className="text-xl md:text-2xl mb-2 text-primary font-semibold">
+            {course.title}
+          </h1>
+          <p className="mb-2 text-sm">{course.description}</p>
+          <button
+            onClick={() => viewCourse(course)}
+            className="p-2 px-6 w-full bg-black  text-white rounded-md"
+          >
+            View Course
+          </button>
+        </div>
+      ))}
     </div>
   );
 };

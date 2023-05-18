@@ -3,63 +3,40 @@ import { BsCameraVideoFill, BsStack } from "react-icons/bs";
 import { BiBook } from "react-icons/bi";
 import { MdOutlineQuiz } from "react-icons/md";
 import Footer from "../components/Footer";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SingleCourse = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const content = location.state.data;
+  const handleWatch = (course) => {
+    navigate("/watch", { state: { data: course } });
+  };
+
   return (
     <div className="bg-gray-100">
       <img src={SampleImage} alt="" className="w-full h-60 object-cover" />
       <div className="container mx-auto p-2 md:p-6">
-        <h1 className="text-3xl font-bold text-primary pb-6">Bitcoin 101</h1>
+        <h1 className="text-3xl font-bold text-primary pb-6">
+          {content.title}
+        </h1>
         <div className="flex flex-col md:flex-row space-y-4">
           <div className="w-full md:w-3/4">
             <p className="text-xl font-bold pb-2">About this course</p>
-            <p className="pb-4 md:w-3/4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores
-              officia itaque dolor ipsum rem porro voluptatem voluptas
-              aspernatur ad expedita tempora corrupti cum ducimus repellendus
-              odio, voluptates, dicta quidem quo. Omnis eius, corporis quae
-              tempora, ad consequatur minus numquam vitae laborum perspiciatis
-              quisquam velit voluptatum? Ab modi nam fugit. Aperiam iusto ipsam
-              quidem aut sit perspiciatis laborum, ex nihil blanditiis.
-            </p>
+            <p className="pb-4 md:w-3/4">{content.description}</p>
             <p className="text-xl font-bold py-2">Course Overview</p>
             <ul>
-              <li className="text-gray-500 pb-2">History of Bitcoin</li>
-
-              <li className="flex items-center space-x-3 pb-1.5">
-                <BsCameraVideoFill />
-                <a href="#">
-                  <span className="truncate">How Bitcoin started</span>
-                </a>
-              </li>
-              <li className="flex items-center space-x-3 pb-1.5">
-                <BsCameraVideoFill />
-                <a href="#">
-                  <span className="truncate">Bitcoin core concepts</span>
-                </a>
-              </li>
-              <li className="flex items-center space-x-3 pb-1.5">
-                <BsCameraVideoFill />
-                <a href="#">
-                  <span className="truncate">Bitcoin price trajectory.</span>
-                </a>
-              </li>
-              <li className="flex items-center space-x-3 pb-1.5">
-                <BsCameraVideoFill />
-                <a href="#">
-                  <span className="truncate">
-                    Bitcoin adoption and controversy
-                  </span>
-                </a>
-              </li>
-              <li className="flex items-center space-x-3 pb-1.5">
-                <BsCameraVideoFill />
-                <a href="#">
-                  <span className="truncate">
-                    Anticipating the future of Bitcoin
-                  </span>
-                </a>
-              </li>
+              {content.courseOverviewBullets.map((courseTitle) => (
+                <li
+                  className="flex items-center space-x-3 pb-1.5"
+                  key={courseTitle}
+                >
+                  <BsCameraVideoFill size={15} />
+                  <a href="#" className="truncate">
+                    <span className="truncate">{courseTitle}</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="bg-white w-full h-fit flex md:flex-col flex-wrap md:w-1/3 rounded shadow-lg p-2 md:p-4">
@@ -94,7 +71,10 @@ const SingleCourse = () => {
                 </span>
               </div>
               <div className="flex flex-col my-3 md:my-2 w-full">
-                <button className="uppercase mb-2 font-bold text-center text-white bg-black px-6 border border-black py-2 rounded-md">
+                <button
+                  onClick={() => handleWatch(content)}
+                  className="uppercase mb-2 font-bold text-center text-white bg-black px-6 border border-black py-2 rounded-md"
+                >
                   Enroll
                 </button>
               </div>

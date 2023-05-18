@@ -12,6 +12,7 @@ import Register from "./pages/Register.jsx";
 import Courses from "./pages/Courses.jsx";
 import Profile from "./pages/Profile.jsx";
 import SingleCourse from "./pages/SingleCourse.jsx";
+import WatchContent from "./pages/WatchContent.jsx";
 
 const router = createBrowserRouter([
   // Public Routes
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/courses/:id",
         element: <SingleCourse />,
+      },
+      {
+        path: "/watch",
+        element: <WatchContent />,
       },
     ],
   },

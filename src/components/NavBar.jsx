@@ -67,7 +67,6 @@ const NavBar = () => {
           <FaBars size={20} />
         </button>
       </nav>
-
       <div
         className={
           isOpen
